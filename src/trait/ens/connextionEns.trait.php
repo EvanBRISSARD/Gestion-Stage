@@ -1,7 +1,4 @@
 <?php
-require_once __DIR__ . '/../config/url_racine.php';
-require_once CHEMIN_RACINE . 'config/db.php';
-
 if (isset($_POST['Identifiant']) && isset($_POST['password'])) {
     $identifiant = $_POST['Identifiant'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -19,7 +16,7 @@ if (isset($_POST['Identifiant']) && isset($_POST['password'])) {
         // Authentification réussie
         session_start();
         $_SESSION['user_id'] = $user['id_ens'];
-        header("Location: ../templates/ens/Candidatures.per.ens.php");
+        header("Location: ". URL_RACINE . "enseignants.php?pages=candidatures.per.ens");
         exit;
     } else {
         die("Identifiant ou mot de passe incorrect.");

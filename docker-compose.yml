@@ -1,0 +1,31 @@
+services:
+  # --- 1. LE SERVEUR WEB (PHP + APACHE) ---
+  web:
+    image: thecodingmachine/php:8.2-v4-apache
+    container_name: gestion-stage-web
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      PHP_EXTENSIONS: pdo_mysql mysqli
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+
+  # --- 2. LA BASE DE DONNÉES (MARIADB) ---
+  db:
+    image: mariadb:10.11
+    container_name: gestion-stage-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}  
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - donnees_sql:/var/lib/mysql
+      - ./config/structure_db_v6.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+# --- 3. DÉCLARATION DU VOLUME POUR LES DONNÉES ---
+volumes:
+  donnees_sql:

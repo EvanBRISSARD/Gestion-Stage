@@ -3,5 +3,5 @@
 define('CHEMIN_RACINE', dirname(__DIR__) . '/');
 
 // URL pour les liens HTML (ex: href="")
-define('URL_RACINE', 'http://localhost/Projets/Gestion%20Stage/');
+define('URL_RACINE', 'http://localhost:8080/');
 ?>

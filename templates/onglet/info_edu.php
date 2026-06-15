@@ -1,10 +1,4 @@
 <?php
-session_start();
-
-require_once __DIR__ . '/../../config/url_racine.php';
-require_once CHEMIN_RACINE . 'config/db.php';
-require_once CHEMIN_RACINE . 'src/fonction_db.php';
-
 $db = getPDO();
 $etudiant = getTarqueETUDIANT($db, $_GET['id']);
 $appartients = getAppartientForETUDIANT($db, $_GET['id']);
@@ -19,10 +13,10 @@ $title = "Étudiant | " . $etudiant['nom_edu'] . " " . $etudiant['prenom_edu'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $enseignant['nom_ens']; ?> - <?php echo $title; ?></title>
-    <link rel="icon" type="image/png" href="<?php echo URL_RACINE; ?>public/images/Logo-Ar.png">
+    <link rel="icon" type="image/png" href="<?php echo URL_RACINE; ?>images/Logo-Ar.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style_info.css">
+    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>css/style_info.css">
 </head>
 <body>
     <?php require_once CHEMIN_RACINE . 'templates/layout/header.ens.php'; // Inclusion de l'en-tête?>
@@ -110,7 +104,7 @@ $title = "Étudiant | " . $etudiant['nom_edu'] . " " . $etudiant['prenom_edu'];
                     <tbody>
                         <?php
                         if(empty($appartients)) {
-                            echo "<tr><td colspan='3'>Aucune inscription d'étudiant enregistrée.</td></tr>";
+                            echo "<tr><td colspan='3'>Aucune association enregistrée.</td></tr>";
                         } else {
                             foreach ($appartients as $appartient) { 
                                 if($appartient['id_cla']) {

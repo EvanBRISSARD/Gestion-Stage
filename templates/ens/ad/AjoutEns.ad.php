@@ -1,10 +1,4 @@
 <?php
-session_start();
-
-require_once __DIR__ . '/../../../config/url_racine.php';
-require_once CHEMIN_RACINE . 'config/db.php';
-require_once CHEMIN_RACINE . 'src/fonction_db.php';
-
 $db = getPDO();
 
 $enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
@@ -21,10 +15,10 @@ $annees_scolaires = getToutANNEE_SCOLAIRE($db);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $enseignant['nom_ens']; ?> - <?php echo $titleOnglet; ?></title>
-    <link rel="icon" type="image/png" href="<?php echo URL_RACINE; ?>public/images/Logo-Ar.png">
+    <link rel="icon" type="image/png" href="images/Logo-Ar.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style_from_ex.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_from_ex.css">
 </head>
 <body>
     <?php require_once CHEMIN_RACINE . 'templates/layout/header.ens.php'; // Inclusion de l'en-tête?>
@@ -48,7 +42,7 @@ $annees_scolaires = getToutANNEE_SCOLAIRE($db);
 
         <div class="formulaire-ajout-classe">
             
-            <form action="<?php echo URL_RACINE; ?>src/trait/ens/ad/AjoutEns.trait.php" method="POST">
+            <form action="<?php echo URL_RACINE; ?>enseignants.php?pages=enseignants.ad.ens&sousPages=ajout.ens.ad" method="POST">
                 <div class="formulaire-ajout-classe-contenu">
                     
                     <div class="colonne-formulaire">

@@ -1,7 +1,4 @@
 <?php
+require_once __DIR__ . '/../config/url_racine.php';
 
-$motDePasse = "ment5aie";
-
-$hash = password_hash($motDePasse, PASSWORD_BCRYPT);
-
-echo $hash;
+header("Location: tableau_de_bord.php?pages=commentSeConnecter");

@@ -1,10 +1,4 @@
 <?php
-session_start();
-
-require_once __DIR__ . '/../../../config/url_racine.php';
-require_once CHEMIN_RACINE . 'config/db.php';
-require_once CHEMIN_RACINE . 'src/fonction_db.php';
-
 $db = getPDO();
 
 $enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
@@ -22,11 +16,11 @@ $title = "Classifier";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $enseignant['nom_ens']; ?> - <?php echo $title; ?></title>
-    <link rel="icon" type="image/png" href="<?php echo URL_RACINE; ?>public/images/Logo-Ar.png">
+    <link rel="icon" type="image/png" href="images/Logo-Ar.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style_classifier_tap.css">
-    <link rel="stylesheet" href="<?php echo URL_RACINE; ?>public/css/style_form_tab.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_classifier_tap.css">
+    <link rel="stylesheet" href="css/style_form_tab.css">
 </head>
 <body>
     <?php require_once CHEMIN_RACINE . 'templates/layout/header.ens.php'; // Inclusion de l'en-tête?>
@@ -80,7 +74,7 @@ $title = "Classifier";
                         <h2><i class="fa-solid fa-chalkboard-user"></i> Classe</h2>
 
                         <div class="formulaire-ajout-classe">
-                            <form action="<?php echo URL_RACINE; ?>src/trait/ens/ad/AjoutClasse.trait.php" method="POST">
+                            <form action="<?php echo URL_RACINE; ?>enseignants.php?pages=classifier.ad.ens" method="POST">
                                 <label for="nom_classe">Nom de la classe :</label>
                                 <input type="text" id="nom_classe" name="nom_classe" required placeholder="Ex: BTS SIO1">
 
@@ -104,7 +98,7 @@ $title = "Classifier";
                                     echo "<tr><td colspan='3'>Aucune classe trouvée.</td></tr>";
                                 } else {
                                 foreach ($classes as $classe) {
-                                    echo "<tr><td>" . htmlspecialchars($classe['id_cla']) . "</td><td>" . htmlspecialchars($classe['nom_cla']) . "</td><td><a href='" . URL_RACINE . "src/trait/ens/ad/SupClasse.trait.php?id=" . $classe['id_cla'] . "' class='bouton-supprimer'><i class='fa-solid fa-trash'></i></a></td></tr>";
+                                    echo "<tr><td>" . htmlspecialchars($classe['id_cla']) . "</td><td>" . htmlspecialchars($classe['nom_cla']) . "</td><td><a href='" . URL_RACINE . "enseignants.php?pages=classifier.ad.ens&id_cla=" . $classe['id_cla'] . "' class='bouton-supprimer'><i class='fa-solid fa-trash'></i></a></td></tr>";
                                 }
                                 }
                                 ?>
@@ -117,7 +111,7 @@ $title = "Classifier";
                     <h2><i class="fa-solid fa-calendar"></i> Année scolaire</h2>
 
                     <div class="formulaire-ajout-classe">
-                        <form action="<?php echo URL_RACINE; ?>src/trait/ens/ad/AjoutAnnee.trait.php" method="POST">
+                        <form action="<?php echo URL_RACINE; ?>enseignants.php?pages=classifier.ad.ens" method="POST">
                             <label for="annee_scolaire">Année scolaire :</label>
                             <input type="text" id="annee_scolaire" name="annee_scolaire" required placeholder="Ex: 2025-2026">
 
@@ -139,7 +133,7 @@ $title = "Classifier";
                                     echo "<tr><td colspan='2'>Aucune année scolaire trouvée.</td></tr>";
                                 } else {
                                 foreach ($annees_scolaires as $annee) {
-                                    echo "<tr><td>" . htmlspecialchars($annee['annee_scolaire']) . "</td><td><a href='" . URL_RACINE . "src/trait/ens/ad/SupAnnee.trait.php?annee_scolaire=" . urlencode($annee['annee_scolaire']) . "' class='bouton-supprimer'><i class='fa-solid fa-trash'></i></a></td></tr>";
+                                    echo "<tr><td>" . htmlspecialchars($annee['annee_scolaire']) . "</td><td><a href='" . URL_RACINE . "enseignants.php?pages=classifier.ad.ens&annee_scolaire=" . urlencode($annee['annee_scolaire']) . "' class='bouton-supprimer'><i class='fa-solid fa-trash'></i></a></td></tr>";
                                 }
                                 }
                                 ?>
