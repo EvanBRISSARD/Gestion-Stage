@@ -1,0 +1,124 @@
+.section-contenue-info {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column; /* Empile le profil et le ou les blocs de scolarité */
+    gap: 10px;             /* Espace de 25px entre chaque bloc d'année */
+}
+
+/* Boîtes blanches principales contenant les infos (Profil, Année 1, Année 2...) */
+.contenue-info {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    
+    /* Gère la disposition interne des colonnes (Profil/Contact ou Scolarité complète) */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* Distinguer visuellement les blocs d'historique de scolarité du bloc principal (Optionnel mais recommandé) */
+.section-contenue-info .contenue-info:not(:first-child) {
+    border-left: 4px solid #3498db; /* Ajoute une bordure bleue à gauche pour marquer le parcours */
+    background-color: #fcfdfe;
+}
+
+/* Style de chaque bloc/colonne d'information */
+.colonne-info {
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #f1f5f9;
+}
+
+/* Titres des sections */
+.colonne-info h2 {
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.colonne-info h2 i {
+    color: #64748b;
+}
+
+/* Blocs de champs (Label + Valeur) */
+.groupe-champ {
+    margin-bottom: 18px;
+}
+
+.groupe-champ:last-child {
+    margin-bottom: 0;
+}
+
+/* Libellé du champ */
+.groupe-champ label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #595959;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* Valeur textuelle affichée */
+.champ-info-valeur {
+    font-size: 1rem;
+    color: #334155;
+    font-weight: 500;
+    padding: 8px 12px;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    word-break: break-all;
+}
+
+/* Liens cliquables (Email, Téléphone) */
+.champ-info-valeur a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.champ-info-valeur a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Badge spécifique pour le Statut / État */
+.badge-status {
+    display: inline-block;
+    padding: 6px 14px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+}
+
+/* Responsive : ajustements pour les petits écrans (smartphones) */
+@media (max-width: 600px) {
+    .contenue-info {
+        padding: 15px;
+        grid-template-columns: 1fr; /* Bascule sur une seule colonne sur mobile */
+        gap: 20px;
+    }
+    
+    .balise-barre-navigation-information h1 {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,23 @@
+/* ===== Classifier Tap Styles ===== */
+.container-classifier {
+    display: flex;
+    align-items: flex-start; 
+    border-top: 1px solid #ccc;
+    width: 100%;         
+    box-sizing: border-box;
+}
+
+/* ===== classifier Classe ===== */
+.container-classifier-Classe {
+    flex: 1;      
+    min-width: 0;      
+    box-sizing: border-box;
+}
+
+/* ===== classifier Annee Scolaire ===== */
+.container-classifier-Année-Scolaire {
+    flex: 1;      
+    min-width: 0;        
+    padding-left: 20px; 
+    box-sizing: border-box;
+}

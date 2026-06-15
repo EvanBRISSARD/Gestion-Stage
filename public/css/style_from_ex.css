@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Conteneur Principal du Formulaire (centré sur la page)
+   ========================================================================== */
+.formulaire-ajout-classe {
+    font-family: 'Raleway', sans-serif;
+    width: fit-content;
+    margin: 25px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Alignement horizontal des colonnes */
+.formulaire-ajout-classe-contenu {
+    display: flex;
+    flex-direction: row; 
+    gap: 30px;           
+    align-items: flex-start;
+}
+
+/* Ligne séparatrice */
+.separateur-formulaire {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 25px 0;
+    width: 100%;
+}
+
+/* Structure des colonnes */
+.colonne-formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+/* Conteneurs des champs classiques (Label au-dessus de l'Input) */
+.groupe-champ {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+}
+
+.formulaire-ajout-classe label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+/* ==========================================================================
+   Nouveau : Style pour l'alignement horizontal des Checkboxes
+   ========================================================================== */
+.groupe-champ-checkbox {
+    display: inline-flex; /* Assure une cohésion en ligne robuste */
+    flex-direction: row; 
+    align-items: center;  /* Centre verticalement la case et le texte */
+    gap: 10px;
+    height: 43px;         
+    cursor: pointer;
+}
+
+.groupe-champ-checkbox label {
+    cursor: pointer;
+    font-weight: 500;
+    user-select: none;   /* Évite de sélectionner le texte par erreur au clic */
+}
+
+/* Style de la case à cocher elle-même */
+.formulaire-ajout-classe input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #007bff; /* Coche en bleu assortie aux boutons */
+}
+
+/* ==========================================================================
+   Style des Inputs Textuels et des Listes Déroulantes (Select)
+   ========================================================================== */
+/* Correction : Cibles précises pour ne pas déformer les checkboxes de 220x43px */
+.formulaire-ajout-classe input[type="text"],
+.formulaire-ajout-classe input[type="email"],
+.formulaire-ajout-classe select {
+    width: 220px; 
+    height: 43px; 
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ffffff;
+    box-sizing: border-box; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Style spécifique pour le curseur sur les listes déroulantes */
+.formulaire-ajout-classe select {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Effet au clic/focus sur les inputs textuels et les select */
+.formulaire-ajout-classe input[type="text"]:focus,
+.formulaire-ajout-classe input[type="email"]:focus,
+.formulaire-ajout-classe select:focus {
+    border-color: #101010;
+    box-shadow: 0 0 0 3px rgba(16, 16, 16, 0.1);
+}
+
+/* ==========================================================================
+   Classes d'Alignement des Boutons
+   ========================================================================== */
+
+/* Ligne 1 : Pousse le bouton vers le bas quand il y a un input au-dessus */
+.colonne-formulaire.aligne-bouton {
+    justify-content: space-between;
+    align-self: stretch; 
+}
+
+/* Ligne 2 : Aligne le bouton directement tout en bas à droite */
+.colonne-formulaire.aligne-bouton-seul {
+    align-self: flex-end; 
+    margin-left: auto; 
+}
+
+/* ==========================================================================
+   Style Général des Boutons
+   ========================================================================== */
+.formulaire-ajout-classe .bouton-ajouter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap; 
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* --- Bouton 1 : Ajouter un Étudiant (Style Bleu Outline) --- */
+.formulaire-ajout-classe .bouton-ajouter {
+    color: #007bff;
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+}
+
+.formulaire-ajout-classe .bouton-ajouter:hover {
+    color: #ffffff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* --- Bouton 2 : Ajouter & l'associer (Style Bleu Plein) --- */
+.formulaire-ajout-classe .bouton-ajouter.bouton-associer {
+    color: #ffffff;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.formulaire-ajout-classe .bouton-ajouter.bouton-associer:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

@@ -1,0 +1,39 @@
+/* ===== Style de formulaire du tableau de bord ===== */
+
+.formulaire-ajout-classe {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    margin-top: 25px;
+}
+
+.formulaire-ajout-classe form {
+    display: flex;
+    gap: 15px;
+    align-items: center; 
+    max-width: fit-content; 
+}
+
+.formulaire-ajout-classe label {
+    font-weight: bold;
+}
+
+.formulaire-ajout-classe input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulaire-ajout-classe .bouton-ajouter {
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.formulaire-ajout-classe .bouton-ajouter:hover {
+    background-color: #0056b3;
+}
