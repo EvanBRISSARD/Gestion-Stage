@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Fichier : css/style_connextion_glo_visit.css
+   Dépendance : style.css (le conteneur body et main est géré globalement)
+   ========================================================================== */
+
+:root {
+    --bg-form-container: #ffffff;
+    --text-main: #343434;
+    --text-muted: #6f6f6f;
+    --accent-blue: #2383e2;
+    --accent-blue-hover: #0056b3;
+    --border-color: #e0e0e0;
+    --shadow-box: rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Centrage dans la zone principale de droite ===== */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    height: 100%;
+    position: relative;
+}
+
+/* ===== Boîte du Formulaire ===== */
+.connextion-container {
+    background-color: var(--bg-form-container);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 35px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px var(--shadow-box);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Titre principal */
+.connextion-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+/* ===== Message d'erreur ajusté ===== */
+.msg-erreur-connexion {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.msg-erreur-connexion h3.message-error {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* ===== Groupes du Formulaire ===== */
+.connextion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Wrapper pour icône + input */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Icônes à l'intérieur des inputs */
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: #a0a0a0;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+/* Champs de saisie */
+.input-group input {
+    width: 100%;
+    padding: 12px 14px 12px 42px; /* Grand padding à gauche pour laisser la place à l'icône */
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--text-main);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus sur l'input */
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(35, 131, 226, 0.15);
+}
+
+/* Changement de couleur de l'icône quand l'input est actif */
+.input-group input:focus ~ .input-icon {
+    color: var(--accent-blue);
+}
+
+/* ===== Bouton Connexion ===== */
+.bouton-connextion {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.bouton-connextion:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+.bouton-connextion:active {
+    transform: scale(0.98);
+}
+
+/* ===== Version Mobile ===== */
+@media (max-width: 480px) {
+    .connextion-container {
+        padding: 30px 20px;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+    }
+}

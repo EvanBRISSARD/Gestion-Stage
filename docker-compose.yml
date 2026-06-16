@@ -18,10 +18,12 @@ services:
     container_name: gestion-stage-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}  
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_HOST: "%"
       MYSQL_DATABASE: ${DB_NAME}
+      MARIADB_AUTO_UPGRADE: "1"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - donnees_sql:/var/lib/mysql
       - ./config/structure_db_v6.sql:/docker-entrypoint-initdb.d/init.sql:ro

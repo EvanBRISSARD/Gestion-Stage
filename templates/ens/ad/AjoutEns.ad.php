@@ -39,6 +39,10 @@ $annees_scolaires = getToutANNEE_SCOLAIRE($db);
                 </div>
             </div>
         </div>
+        
+        <a href="javascript:history.back()" class="bouton-retour">
+            <i class="fa-solid fa-arrow-left"></i> Retour
+        </a>
 
         <div class="formulaire-ajout-classe">
             

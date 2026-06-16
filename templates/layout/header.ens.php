@@ -37,7 +37,7 @@
                     <li><a href="enseignants.php?pages=enseignants.ad.ens" class="<?php echo ($title == 'Enseignants') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-book-open-reader"></i> Enseignants</a></li>
                     <li><a href="enseignants.php?pages=classesGloblas.ad.ens" class="<?php echo ($title == 'Classes Globales') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-users-line"></i> Classes Globales</a></li>
                     <li><a href="enseignants.php?pages=classifier.ad.ens" class="<?php echo ($title == 'Classifier') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-folder-tree"></i> Classifier</a></li>
-                    <li><a href="<?php echo URL_RACINE; ?>templates/ens/ad/classifier.ad.php" class="<?php echo ($title == 'Planification de stage') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-scroll"></i> Planification de stage</a></li>
+                    <li><a href="enseignants.php?pages=planificationStage.ad.ens" class="<?php echo ($title == 'Planification de stage') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-scroll"></i> Planification de stage</a></li>
                 </ul>
             </section>
             <section class="balise-barre-navigation">

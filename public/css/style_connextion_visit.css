@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Fichier : css/style_connextion_visit.css
+   Dépendance : style.css (gère déjà le layout global body + main)
+   ========================================================================== */
+
+/* ===== Variables locales pour la page de connexion ===== */
+:root {
+    --card-bg: #ffffff;
+    --text-dark: #343434;
+    --text-muted: #989898;
+    --accent-blue: #e4f1ff;
+    --accent-blue-hover: #e4f1ff;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Ajustement du container principal <main> ===== */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Occupe toute la hauteur disponible du conteneur parent */
+    background-color: #fafafa; /* Léger fond pour faire ressortir les cartes blanches */
+}
+
+/* ===== Conteneur des deux choix ===== */
+.contenur-connextion {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Aligne les deux cartes à la même hauteur */
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    background-color: var(--card-bg);
+}
+
+/* ===== Cartes de choix (Étudiants / Enseignants) ===== */
+.contenur-section-choix {
+    flex: 1;
+    min-width: 250px;
+    max-width: 380px;
+    background-color: #007bff ;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Style du lien ancré qui englobe tout le contenu de la carte */
+.contenur-section-choix a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 25px;
+    text-decoration: none;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Titres des cartes (H2) */
+.contenur-section-choix h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e4f1ff;
+    margin: 0 0 15px 0;
+}
+
+/* Icônes FontAwesome */
+.contenur-section-choix i {
+    font-size: 3.5rem;
+    color: #e4f1ff;
+    margin: 15px 0;
+    transition: transform 0.2s ease;
+}
+
+/* Descriptions (P) */
+.contenur-section-choix p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #e4f1ff;
+    line-height: 1.5;
+    margin: 15px 0 0 0;
+}
+
+/* ===== Effets au survol (Hover) ===== */
+.contenur-section-choix:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #0056b3;
+    border-color: #0056b3;
+}
+
+.contenur-section-choix:hover i {
+    transform: scale(1.05);
+    color: #e4f1ff;
+}
+
+/* ===== Version Mobile (Responsive) ===== */
+@media (max-width: 768px) {
+    .contenur-connextion {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        overflow-y: auto; /* Permet le défilement des cartes si l'écran est très petit */
+    }
+
+    .contenur-section-choix {
+        width: 100%;
+    }
+}

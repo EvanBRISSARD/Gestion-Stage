@@ -45,6 +45,10 @@ $enseignants = getToutENSEIGNANT($db);
             </div>
         </div>
 
+        <a href="javascript:history.back()" class="bouton-retour">
+            <i class="fa-solid fa-arrow-left"></i> Retour
+        </a>
+
         <div class="formulaire-ajout-classe">
             
             <form action="enseignants.php?pages=etudiands.ad.ens&sousPages=ajout.edu.ad" method="POST">

@@ -4,7 +4,7 @@ if (isset($_POST['Identifiant']) && isset($_POST['password'])) {
     $password = $_POST['password'] ?? '';
 
     if (empty($identifiant) || empty($password)) {
-        die("Veuillez remplir tous les champs.");
+        header("Location: ". URL_RACINE . "tableau_de_bord.php?pages=connextionEns&error=1");
     }
 
     $pdo = getPDO();
@@ -19,8 +19,8 @@ if (isset($_POST['Identifiant']) && isset($_POST['password'])) {
         header("Location: ". URL_RACINE . "enseignants.php?pages=candidatures.per.ens");
         exit;
     } else {
-        die("Identifiant ou mot de passe incorrect.");
+        header("Location: ". URL_RACINE . "tableau_de_bord.php?pages=connextionEns&error=1");
     }
 } else {
-    die("Méthode de requête non autorisée.");
+    header("Location: ". URL_RACINE . "tableau_de_bord.php?pages=connextionEns&error=1");
 }

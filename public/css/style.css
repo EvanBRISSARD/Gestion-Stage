@@ -397,3 +397,18 @@ p.badge-chemin-actuel {
     background-color: #dc354520;
     color: #dc3545;
 }
+
+/* ===== Bouton Retour ===== */
+.bouton-retour {
+    top: 15px;
+    left: 20px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.bouton-retour:hover {
+    color: var(--accent-blue);
+}

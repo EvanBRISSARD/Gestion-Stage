@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../config/url_racine.php';
 require_once CHEMIN_RACINE . 'config/db.php';
 
@@ -10,11 +11,12 @@ switch ($page) {
         break;
 
     case 'connextionEns':
-        require_once CHEMIN_RACINE . 'templates/visi/Connextion.ens.php';
-
-        if (isset($_POST) && !empty($_POST)){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             require_once CHEMIN_RACINE . 'src/trait/ens/connextionEns.trait.php';
         }
+           
+
+        require_once CHEMIN_RACINE . 'templates/visi/Connextion.ens.php';
         break;
 
     default:

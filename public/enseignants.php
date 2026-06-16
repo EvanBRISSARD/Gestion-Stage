@@ -17,7 +17,9 @@ switch ($page) {
     case 'entrerpise.per.ens':
         require_once CHEMIN_RACINE . 'templates/ens/entrerpise.per.ens.php';
         break;
+    
 
+    // Section AD =========================================================
     case 'etudiands.ad.ens': // ====== Section Pages AD/AP Étudiants
         if($sousPages == 'ajout.edu.ad'){
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -95,6 +97,10 @@ switch ($page) {
         }
 
         require_once CHEMIN_RACINE . 'templates/ens/ad/classifier.ad.php';
+        break;
+
+        case 'planificationStage.ad.ens': 
+        require_once CHEMIN_RACINE . 'templates/ens/ad/planificationStage.php';
         break;
 
     default:

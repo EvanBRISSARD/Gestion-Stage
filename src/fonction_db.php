@@ -66,6 +66,16 @@ function getToutETUDIANT($db) {
     }
 }
 
+function getToutSTAGE($db) {
+    try {
+        $requete = $db->query("SELECT id_sta, date_debut_sta, date_fin_sta, annee_scolaire FROM STAGE ORDER BY annee_scolaire DESC;");
+        return $requete->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Erreur SQL : " . $e->getMessage());
+        return [];
+    }
+}
+
 function getToutENSEIGNANT($db) {
     try {
         $requete = $db->query("SELECT id_ens, nom_ens, mail_ens, AP_ens, AD_ens FROM ENSEIGNANT ORDER BY nom_ens ASC ;");
