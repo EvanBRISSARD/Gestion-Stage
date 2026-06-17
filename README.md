@@ -1,6 +1,6 @@
 # 🎓 Gestion-stages
 
-![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4?style=for-the-badge\&logo=php\&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MVC](https://img.shields.io/badge/Architecture-MVC-2ea44f?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)
 ![MariaDB 10.11](https://img.shields.io/badge/MariaDB-10.11-003545?style=for-the-badge&logo=mariadb&logoColor=white)
