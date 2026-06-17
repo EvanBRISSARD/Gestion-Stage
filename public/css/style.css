@@ -154,6 +154,27 @@ header {
     height: 100vh;
     box-sizing: border-box;
     width: 250px;
+    
+    /* 🛠️ AJOUTS POUR LE SCROLL DYNAMIQUE */
+    overflow-y: auto;  /* Active le scroll vertical uniquement si le contenu dépasse */
+    overflow-x: hidden; /* Empêche tout scroll horizontal parasite */
+}
+/* Personnalisation de la barre de défilement pour le header (navigateurs basés sur WebKit comme Chrome, Edge, Safari) */
+header::-webkit-scrollbar {
+    width: 6px; /* Barre très fine */
+}
+
+header::-webkit-scrollbar-track {
+    background: transparent; /* Fond invisible */
+}
+
+header::-webkit-scrollbar-thumb {
+    background-color: #cccccc; /* Couleur de la barre */
+    border-radius: 4px;
+}
+
+header::-webkit-scrollbar-thumb:hover {
+    background-color: #aaaaaa; /* Devient un peu plus sombre au survol */
 }
 
 /* ===== Barre de navigation ===== */
