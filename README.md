@@ -1,4 +1,4 @@
-# 🎓 Gestion des stages
+# 🎓 Gestion-stages
 
 ![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4?style=for-the-badge\&logo=php\&logoColor=white)
 ![MVC](https://img.shields.io/badge/Architecture-MVC-2ea44f?style=for-the-badge)
@@ -9,7 +9,7 @@
 
 ## 📌 À propos du projet
 
-**StageFlow** est une application web de gestion de stages permettant de centraliser et structurer l’ensemble du processus de stage pour les étudiants, enseignants et entreprises.
+**Gestion-stages** est une application web de gestion de stages permettant de centraliser et structurer l’ensemble du processus de stage pour les étudiants, enseignants et entreprises.
 
 Le système facilite :
 
@@ -68,7 +68,7 @@ Le projet est développé en **PHP** avec une architecture **MVC**, et déployé
 ## 📁 Architecture du projet
 
 ```bash id="projarch1"
-📦 GestionStage
+📦 Gestion-Stage
 ├── config/          # Configuration DB & variables globales
 ├── public/          # Pages accessibles (interface utilisateur)
 ├── src/             # Logique métier (MVC - contrôleurs & services)
