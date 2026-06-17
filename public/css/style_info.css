@@ -110,6 +110,63 @@
     border-radius: 20px;
 }
 
+/* ===== Ajustements pour transformer les Divs en Inputs éditables ===== */
+
+input.champ-info-valeur {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Effet au focus sur un champ */
+input.champ-info-valeur:focus {
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* Style appliqué pour un champ en lecture seule */
+.champ-bloque {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* Conserver le look du badge status dans l'input */
+input.input-badge-status {
+    font-weight: 600;
+    color: #0369a1;
+    background-color: #e0f2fe;
+    border: 1px solid #bae6fd;
+}
+input.input-badge-status:focus {
+    background-color: #e0f2fe;
+    border-color: #0369a1;
+}
+
+/* ===== Nouveau bouton "Enregistrer" ===== */
+.bouton-sauvegarder {
+    font-family: 'Raleway', sans-serif;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.bouton-sauvegarder:hover {
+    background-color: #0056b3;
+}
+
 /* Responsive : ajustements pour les petits écrans (smartphones) */
 @media (max-width: 600px) {
     .contenue-info {

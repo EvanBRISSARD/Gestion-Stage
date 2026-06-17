@@ -30,21 +30,23 @@
                     <li><a href="#"><i class="fa-solid fa-square-up-right"></i> Relance globale</a></li>
                 </ul>
             </section>
+            <?php if($enseignant['AP_ens'] || $enseignant['AD_ens']) { ?>
             <section class="balise-barre-navigation">
                 <h2>Vue Administratifs / Réglage</h2>
                 <ul>
                     <li><a href="enseignants.php?pages=etudiands.ad.ens" class="<?php echo ($title == 'Étudiants') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-graduation-cap"></i> Étudiants</a></li>
-                    <li><a href="enseignants.php?pages=enseignants.ad.ens" class="<?php echo ($title == 'Enseignants') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-book-open-reader"></i> Enseignants</a></li>
+                    <?php if($enseignant['AD_ens']) { ?> <li><a href="enseignants.php?pages=enseignants.ad.ens" class="<?php echo ($title == 'Enseignants') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-book-open-reader"></i> Enseignants</a></li>  <?php } ?>
                     <li><a href="enseignants.php?pages=classesGloblas.ad.ens" class="<?php echo ($title == 'Classes Globales') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-users-line"></i> Classes Globales</a></li>
                     <li><a href="enseignants.php?pages=classifier.ad.ens" class="<?php echo ($title == 'Classifier') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-folder-tree"></i> Classifier</a></li>
                     <li><a href="enseignants.php?pages=planificationStage.ad.ens" class="<?php echo ($title == 'Planification de stage') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-scroll"></i> Planification de stage</a></li>
                 </ul>
             </section>
+            <?php } ?>
             <section class="balise-barre-navigation">
                 <h2>Informations & Réglage</h2>
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-circle-info"></i> Information de stage</a></li>
-                    <li><a href="#"><i class="fa-solid fa-sliders"></i> Réglages</a></li>
+                    <li><a href="#" class="<?php echo ($title == '') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-circle-info"></i> Information de stage</a></li>
+                    <li><a href="onglet.php?pages=réglage.ens" class="<?php echo ($title == 'Réglages') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-sliders"></i> Réglages</a></li>
                 </ul>
             </section>
         </nav>

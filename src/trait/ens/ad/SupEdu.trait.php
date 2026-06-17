@@ -1,28 +1,19 @@
 <?php
-
 $db = getPDO();
 $id_edu = $_GET['id_edu'];
 
-$stmt = $db->prepare("DELETE FROM appartient WHERE id_edu = :id ;");
-$stmt->bindParam(':id', $id_edu);
+$stmt = $db->prepare("DELETE FROM etudiant WHERE id_edu = :id;");
+$stmt->bindParam(':id', $id_edu, PDO::PARAM_INT);
 
 try {
     $stmt->execute();
 
-    $stmt = $db->prepare("DELETE FROM ETUDIANT WHERE id_edu = :id ;");
-    $stmt->bindParam(':id', $id_edu);
-    
-    try {
-        $stmt->execute();
-        header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&success=3"); // Rediriger avec un message de succès
-        exit();
-
-    } catch(PDOException $e) {
-    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&error=3&message=" . urlencode($e->getMessage())); // Rediriger avec une erreur de base de données
+    // Si on arrive ici, l'étudiant ET toutes ses dépendances ont été supprimés en cascade
+    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&success=3");
     exit();
-    }
-    
+
 } catch(PDOException $e) {
-    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.en&?error=3&message=" . urlencode($e->getMessage())); // Rediriger avec une erreur de base de données
+    // En cas d'erreur (ex: problème de connexion BDD)
+    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&error=3&message=" . urlencode($e->getMessage()));
     exit();
 }

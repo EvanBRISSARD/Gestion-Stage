@@ -1,13 +1,7 @@
 <?php
-$db = getPDO();
-
-$enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
 $classes = getToutClASSE($db);
 $annees_scolaires = getToutANNEE_SCOLAIRE($db);
-
-
 $title = "Classifier";
-
 ?>
 
 <!DOCTYPE html>

@@ -2,7 +2,7 @@
 $db = getPDO();
 $nom_classe = $_POST['nom_classe'];
 
-$stmt = $db->prepare("INSERT INTO CLASSE (nom_cla) VALUES (:nom_classe);");
+$stmt = $db->prepare("INSERT INTO classe (nom_cla) VALUES (:nom_classe);");
 $stmt->bindParam(':nom_classe', $nom_classe);
 
 try {

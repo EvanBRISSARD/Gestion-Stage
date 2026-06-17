@@ -1,7 +1,6 @@
 <?php
-$title = "Enseignants";
-$titleOnglet = "Ajouter un Enseignant";
-$classes = getToutClASSE($db);
+$title = "Planification de stage";
+$titleOnglet = "Ajouter une planification de stage";
 $annees_scolaires = getToutANNEE_SCOLAIRE($db);
 ?>
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $annees_scolaires = getToutANNEE_SCOLAIRE($db);
                         <h3 class="message-error" ><i class="fa-solid fa-xmark"></i> Erreur : <?php echo isset($_GET['message']) ? htmlspecialchars($_GET['message']) : "Une erreur est survenue."; ?></h3>
                     <?php } ?>
                     <?php if(isset($_GET['success']) && $_GET['success'] == 1) { ?>
-                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout réussie, <?php echo isset($_GET['message']) ? htmlspecialchars($_GET['message']) : ""; ?></h3>
+                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout réussie</h3>
                     <?php } ?>
                 </div>
             </div>
@@ -41,34 +40,33 @@ $annees_scolaires = getToutANNEE_SCOLAIRE($db);
 
         <div class="formulaire-ajout-classe">
             
-            <form action="<?php echo URL_RACINE; ?>enseignants.php?pages=enseignants.ad.ens&sousPages=ajout.ens.ad" method="POST">
+            <form action="<?php echo URL_RACINE; ?>enseignants.php?pages=planificationStage.ad.ens&sousPages=ajoutStage.ad.ens" method="POST">
+                <form action="<?php echo htmlspecialchars(URL_RACINE); ?>enseignants.php?pages=enseignants.ad.ens&sousPages=ajout.ens.ad" method="POST">
                 <div class="formulaire-ajout-classe-contenu">
                     
                     <div class="colonne-formulaire">
                         <div class="groupe-champ">
-                            <label for="nom">Nom* :</label>
-                            <input type="text" id="nom" name="nom" required placeholder="Ex: doe">
+                            <label for="date_debut">Début* :</label>
+                            <input type="date" id="date_debut" name="date_debut" required>
                         </div>
                         
                         <div class="groupe-champ">
-                            <label>&nbsp;</label> <div class="groupe-champ-checkbox">
-                                <input type="checkbox" id="ap_option" name="ap_option" value="1">
-                                <label for="ap_option">Atelier de professionnalisation (AP)*</label>
-                            </div>
+                            <label for="annee_scolaire_etud">Année scolaire* :</label>
+                            <select name="annee_scolaire_etud" id="annee_scolaire_etud" required>
+                                <option value="">-- Choisir une année --</option>
+                                <?php foreach($annees_scolaires as $annee) { ?>
+                                    <option value="<?php echo htmlspecialchars($annee['annee_scolaire']); ?>">
+                                        <?php echo htmlspecialchars($annee['annee_scolaire']); ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
 
                     <div class="colonne-formulaire">
                         <div class="groupe-champ">
-                            <label for="mail">Mail :</label>
-                            <input type="email" id="mail" name="mail" placeholder="Ex: john.doe@example.com">
-                        </div>
-                        
-                        <div class="groupe-champ">
-                            <label>&nbsp;</label> <div class="groupe-champ-checkbox">
-                                <input type="checkbox" id="ad_option" name="ad_option" value="1">
-                                <label for="ad_option">Administrateur (AD)*</label>
-                            </div>
+                            <label for="date_fin">Fin* :</label>
+                            <input type="date" id="date_fin" name="date_fin" required>
                         </div>
                     </div>
 

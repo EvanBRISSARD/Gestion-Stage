@@ -2,7 +2,7 @@
 $db = getPDO();
 $annee_scolaire = $_GET['annee_scolaire'];
 
-$stmt = $db->prepare("DELETE FROM ANNEE_SCOLAIRE WHERE annee_scolaire = :annee_scolaire;");
+$stmt = $db->prepare("DELETE FROM annee_scolaire WHERE annee_scolaire = :annee_scolaire;");
 $stmt->bindParam(':annee_scolaire', $annee_scolaire);
 
 try {

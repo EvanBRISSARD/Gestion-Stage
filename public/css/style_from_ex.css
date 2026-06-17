@@ -75,11 +75,11 @@
 }
 
 /* ==========================================================================
-   Style des Inputs Textuels et des Listes Déroulantes (Select)
+   Style des Inputs Textuels, Dates et des Listes Déroulantes (Select)
    ========================================================================== */
-/* Correction : Cibles précises pour ne pas déformer les checkboxes de 220x43px */
 .formulaire-ajout-classe input[type="text"],
 .formulaire-ajout-classe input[type="email"],
+.formulaire-ajout-classe input[type="date"], /* AJOUTÉ ICI pour appliquer le style aux dates */
 .formulaire-ajout-classe select {
     width: 220px; 
     height: 43px; 
@@ -93,15 +93,17 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Style spécifique pour le curseur sur les listes déroulantes */
-.formulaire-ajout-classe select {
+/* Style spécifique pour le curseur sur les listes déroulantes et dates */
+.formulaire-ajout-classe select,
+.formulaire-ajout-classe input[type="date"] {
     cursor: pointer;
     font-family: inherit;
 }
 
-/* Effet au clic/focus sur les inputs textuels et les select */
+/* Effet au clic/focus sur les inputs textuels, dates et les select */
 .formulaire-ajout-classe input[type="text"]:focus,
 .formulaire-ajout-classe input[type="email"]:focus,
+.formulaire-ajout-classe input[type="date"]:focus, /* AJOUTÉ ICI pour l'effet au clic */
 .formulaire-ajout-classe select:focus {
     border-color: #101010;
     box-shadow: 0 0 0 3px rgba(16, 16, 16, 0.1);

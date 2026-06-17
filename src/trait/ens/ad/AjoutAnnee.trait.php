@@ -2,7 +2,7 @@
 $db = getPDO();
 $annee_scolaire = $_POST['annee_scolaire'];
 
-$stmt = $db->prepare("INSERT INTO ANNEE_SCOLAIRE (annee_scolaire) VALUES (:annee_scolaire)");
+$stmt = $db->prepare("INSERT INTO annee_scolaire (annee_scolaire) VALUES (:annee_scolaire)");
 $stmt->bindParam(':annee_scolaire', $annee_scolaire);
 
 try {

@@ -1,10 +1,5 @@
 <?php
-
-$db = getPDO();
-
-$enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
 $title = "Candidatures envoyées";
-
 ?>
 
 <!DOCTYPE html>

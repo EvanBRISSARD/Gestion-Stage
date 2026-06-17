@@ -1,14 +1,9 @@
 <?php
-$db = getPDO();
-
-$enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
 $title = "Étudiants";
 $titleOnglet = "Ajouter un Étudiant";
-
 $classes = getToutClASSE($db);
 $annees_scolaires = getToutANNEE_SCOLAIRE($db);
 $enseignants = getToutENSEIGNANT($db);
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,10 +30,10 @@ $enseignants = getToutENSEIGNANT($db);
                         <h3 class="message-error" ><i class="fa-solid fa-xmark"></i> Erreur : <?php echo isset($_GET['message']) ? htmlspecialchars($_GET['message']) : "Une erreur est survenue."; ?></h3>
                     <?php } ?>
                     <?php if(isset($_GET['success']) && $_GET['success'] == 1) { ?>
-                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout réussie</h3>
+                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout réussie, <?php echo isset($_GET['message']) ? htmlspecialchars($_GET['message']) : ""; ?></h3>
                     <?php } ?>
                     <?php if(isset($_GET['success']) && $_GET['success'] == 2) { ?>
-                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout et association on réussis</h3>
+                        <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout et association on réussis, <?php echo isset($_GET['message']) ? htmlspecialchars($_GET['message']) : ""; ?></h3>
                     <?php } ?>
 
                 </div>

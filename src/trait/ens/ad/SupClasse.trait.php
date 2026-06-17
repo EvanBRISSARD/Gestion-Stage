@@ -2,7 +2,7 @@
 $db = getPDO();
 $id_classe = $_GET['id_cla'];
 
-$stmt = $db->prepare("DELETE FROM CLASSE WHERE id_cla = :id_classe;");
+$stmt = $db->prepare("DELETE FROM classe WHERE id_cla = :id_classe;");
 $stmt->bindParam(':id_classe', $id_classe);
 
 try {

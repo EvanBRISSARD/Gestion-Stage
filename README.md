@@ -74,7 +74,6 @@ Le projet est développé en **PHP** avec une architecture **MVC**, et déployé
 ├── src/             # Logique métier (MVC - contrôleurs & services)
 ├── templates/       # Vues organisées par modules
 ├── docker-compose.yml
-├── .env
 └── README.md
 ```
 
@@ -101,7 +100,7 @@ cd GestionStage
 ### 🚀 Lancer l’environnement
 
 ```bash id="run1"
-docker compose up -d
+docker compose --env-file ./config/.env up -d
 ```
 
 ---

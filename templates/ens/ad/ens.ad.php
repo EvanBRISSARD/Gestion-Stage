@@ -1,11 +1,6 @@
 <?php
-$db = getPDO();
-
-$enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
 $title = "Enseignants";
-
 $enseignants = getToutENSEIGNANT($db);
-
 ?>
 
 <!DOCTYPE html>

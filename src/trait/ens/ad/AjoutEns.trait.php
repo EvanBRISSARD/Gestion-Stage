@@ -8,7 +8,7 @@ $mail = empty($_POST['mail']) ? null : trim($_POST['mail']);
 $ap_option = isset($_POST['ap_option']) ? 1 : 0 ;
 $ad_option = isset($_POST['ad_option']) ? 1 : 0 ;
 
-$stmt = $db->prepare("INSERT INTO ENSEIGNANT (nom_ens, mail_ens, AP_ens, AD_ens) value (:nom_ens, :mail_ens, :AP_ens, :AD_ens);");
+$stmt = $db->prepare("INSERT INTO enseignant (nom_ens, mail_ens, AP_ens, AD_ens) value (:nom_ens, :mail_ens, :AP_ens, :AD_ens);");
 
 try {
     $stmt->execute([
@@ -18,8 +18,12 @@ try {
         ':AD_ens' => $ad_option,
     ]);
 
+    $id_ens_cree = $db->lastInsertId();
+
+    require_once CHEMIN_RACINE . 'src/trait/ens/ad/AjoutConnextionEns.trait.php';
+
     // Redirection vers la page de succès
-    header("Location: " . URL_RACINE . "enseignants.php?pages=enseignants.ad.ens&sousPages=ajout.ens.ad&success=1"); 
+    header("Location: " . URL_RACINE . "enseignants.php?pages=enseignants.ad.ens&sousPages=ajout.ens.ad&success=1&message=" . urlencode("Mot de pass temporaire : " . $motDePasse)); 
     exit();
     
 } catch(PDOException $e) {

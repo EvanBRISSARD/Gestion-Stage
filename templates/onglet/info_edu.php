@@ -1,5 +1,4 @@
 <?php
-$db = getPDO();
 $etudiant = getTarqueETUDIANT($db, $_GET['id']);
 $appartients = getAppartientForETUDIANT($db, $_GET['id']);
 
@@ -26,7 +25,7 @@ $title = "Étudiant | " . $etudiant['nom_edu'] . " " . $etudiant['prenom_edu'];
             <p class="badge-chemin-actuel">Vue information > <?php echo $title; ?></p>
             <div class="balise-barre-navigation-information">
                 <h1><i class="fa-solid fa-graduation-cap"></i> <?php echo $title; ?></h1>
-                <a href="<?php echo URL_RACINE; ?>templates/ens/ad/AjoutEdu.ad.php" class="bouton-ajouter"><i class="fa-solid fa-pen-ruler"></i> Modifier</a>
+                <a href="<?php echo URL_RACINE; ?>onglet.php?pages=info_modif.edu&id=<?php echo $_GET['id'] ?>" class="bouton-ajouter"><i class="fa-solid fa-pen-ruler"></i> Modifier</a>
             </div>
         </div>
         <div class="section-contenue-info">

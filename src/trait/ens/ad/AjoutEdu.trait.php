@@ -9,7 +9,7 @@ $num_telephone = empty($_POST['num_telephone']) ? null : trim($_POST['num_teleph
 
 $id_ens = empty($_POST['enseignant_referent']) ? null : trim($_POST['enseignant_referent']);; 
 
-$stmt = $db->prepare("INSERT INTO ETUDIANT (nom_edu, prenom_edu, mail_edu, num_phone_edu, id_ens) VALUES (:nom_edu, :prenom_edu, :mail_edu, :num_phone_edu, :id_ens);");
+$stmt = $db->prepare("INSERT INTO etudiant (nom_edu, prenom_edu, mail_edu, num_phone_edu, id_ens) VALUES (:nom_edu, :prenom_edu, :mail_edu, :num_phone_edu, :id_ens);");
 
 try {
     $stmt->execute([
@@ -20,14 +20,16 @@ try {
         ':id_ens' => $id_ens
     ]);
 
+    $id_edu_cree = $db->lastInsertId();
+
+    require_once CHEMIN_RACINE . 'src/trait/ens/ad/AjoutConnextionEdu.trait.php';
+
     if(isset($_POST['action_ajouter_seul'])){
         // Redirection vers la page de succès
-        header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&sousPages=ajout.edu.ad&success=1"); 
+        header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&sousPages=ajout.edu.ad&success=1&message=" . urlencode("Mot de pass temporaire : " . $motDePasse)); 
         exit();
     }
     
-    $id_edu_cree = $db->lastInsertId();
-
     $id_classe = $_POST['classe_etud'];
     $annee_scolaire = $_POST['annee_scolaire_etud'];
     $option_etud = empty($_POST['option_etud']) ? 'e/n' : trim($_POST['option_etud']);
@@ -41,7 +43,7 @@ try {
         ':option_edu' => mb_strtoupper($option_etud, 'UTF-8')
     ]);
 
-    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&sousPages=ajout.edu.ad&success=2"); 
+    header("Location: " . URL_RACINE . "enseignants.php?pages=etudiands.ad.ens&sousPages=ajout.edu.ad&success=2&message=" . urlencode("Mot de pass temporaire : " . $motDePasse)); 
     exit();
 
 
