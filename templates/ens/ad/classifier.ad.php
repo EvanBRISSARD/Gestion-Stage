@@ -77,7 +77,7 @@ $title = "Classifier";
                         </div>
                     </div>
                     <br>
-                    <div class="navigation-container zone-scrollable-tableau">
+                    <div class="navigation-container zone-scrollable-tableau page-min-table">
                         <table class="mon-tableau-navigation">
                             <thead>
                                 <tr>
@@ -113,7 +113,7 @@ $title = "Classifier";
                         </form>
                     </div>
                     <br>
-                    <div class="navigation-container zone-scrollable-tableau">
+                    <div class="navigation-container zone-scrollable-tableau page-min-table">
                         <table class="mon-tableau-navigation">
                             <thead>
                                 <tr>

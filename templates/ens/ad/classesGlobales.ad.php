@@ -34,7 +34,7 @@ $title = "Classes Globales";
                     <h3 class="message-success" ><i class="fa-solid fa-check"></i> Ajout réussie (classe)</h3>
                 <?php } ?>
             </div>
-            <div class="navigation-container zone-scrollable-tableau">
+            <div class="navigation-container zone-scrollable-tableau page-max-table">
                 <table class="mon-tableau-navigation">
                     <thead>
                         <tr>

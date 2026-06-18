@@ -359,18 +359,25 @@ p.badge-chemin-actuel {
 /* ===== Tableaux de données ===== */
 
 .zone-scrollable-tableau {
+    display: block;          /* 🔥 INDISPENSABLE pour que le max-height et le scroll fonctionnent */
     width: 100%;
-    overflow-y: auto;       /* Active la barre de scroll vertical si nécessaire */
-    overflow-x: hidden;     /* Évite les glitches de scroll horizontal */
-    margin-top: 20px;       /* Ajoute un espacement propre sous tes boutons d'action */
-    
-    /* 🛠️ AJUSTEMENT DYNAMIQUE : Empêche le tableau de sortir de l'écran */
-    max-height: calc(100vh - 220px); 
+    overflow-y: auto;        /* Active le scroll vertical quand le tableau dépasse la max-height */
+    overflow-x: auto;        /* ⚠️ Conseil : Utilisez 'auto' plutôt que 'hidden' pour les tableaux */
+    margin-top: 20px; 
+}
+
+.page-max-table {
+    max-height: clamp(300px, 80vh, 700px);
+}
+
+.page-min-table {
+    max-height: clamp(200px, 55vh, 500px); 
 }
 
 .mon-tableau-navigation {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;     /* 💡 Optionnel : Force les colonnes à respecter la largeur sans déborder */
 }
 
 .mon-tableau-navigation th,
