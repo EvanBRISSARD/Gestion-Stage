@@ -46,7 +46,7 @@
                 <h2>Informations & Réglage</h2>
                 <ul>
                     <li><a href="#" class="<?php echo ($title == '') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-circle-info"></i> Information de stage</a></li>
-                    <li><a href="onglet.php?pages=réglage.ens" class="<?php echo ($title == 'Réglages') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-sliders"></i> Réglages</a></li>
+                    <li><a href="onglet.php?pages=réglage.ens&id=<?php echo $enseignant['id_ens'] ; ?>" class="<?php echo ($title == 'Réglages') ? 'onglet-selectionne' : ''; ?>"><i class="fa-solid fa-sliders"></i> Réglages</a></li>
                 </ul>
             </section>
         </nav>

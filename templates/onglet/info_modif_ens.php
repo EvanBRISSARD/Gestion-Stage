@@ -1,5 +1,7 @@
 <?php
 $title = "Réglages";
+$enseignant = getTarqueENSEIGNANT($db, $_GET['id']);
+$etudiants = getToutETUDIANT_TarqueENSEIGNANT($db, $_GET['id'])
 ?>
 
 <!DOCTYPE html>
@@ -47,17 +49,17 @@ $title = "Réglages";
                         
                         <div class="groupe-champ">
                             <label for="nom_edu">Nom</label>
-                            <input type="text" id="nom_edu" name="nom_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($etudiant['nom_edu']); ?>" required>
+                            <input type="text" id="nom_edu" name="nom_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($enseignant['nom_ens']); ?>" required>
                         </div>
                         
                         <div class="groupe-champ">
-                            <label for="prenom_edu">Prénom</label>
-                            <input type="text" id="prenom_edu" name="prenom_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($etudiant['prenom_edu']); ?>" required>
+                            <label for="prenom_edu">AP</label>
+                            <input type="text" id="prenom_edu" name="prenom_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($enseignant['AP_ens']); ?>" required>
                         </div>
                         
                         <div class="groupe-champ">
-                            <label for="status_edu">Statut / État</label>
-                            <input type="text" id="status_edu" name="status_edu" class="champ-info-valeur input-badge-status" value="<?php echo $etudiant['status_edu'] ? htmlspecialchars($etudiant['status_edu']) : 'En cours'; ?>">
+                            <label for="prenom_edu">AD</label>
+                            <input type="text" id="prenom_edu" name="prenom_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($enseignant['AD_ens']); ?>" required>
                         </div>
                     </div>
 
@@ -66,27 +68,9 @@ $title = "Réglages";
                         
                         <div class="groupe-champ">
                             <label for="mail_edu">Adresse Email</label>
-                            <input type="email" id="mail_edu" name="mail_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($etudiant['mail_edu'] ?? ''); ?>">
+                            <input type="email" id="mail_edu" name="mail_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($enseignant['mail_ens'] ?? ''); ?>">
                         </div>
                         
-                        <div class="groupe-champ">
-                            <label for="num_phone_edu">Téléphone</label>
-                            <input type="text" id="num_phone_edu" name="num_phone_edu" class="champ-info-valeur" value="<?php echo htmlspecialchars($etudiant['num_phone_edu'] ?? ''); ?>">
-                        </div>
-
-                        <div class="groupe-champ">
-                            <label>Enseignant Référent (Non modifiable ici)</label>
-                            <div class="champ-info-valeur champ-bloque">
-                                <?php 
-                                if($etudiant['id_ens']) {
-                                    $ensRef = getTarqueENSEIGNANT($db, $etudiant['id_ens']);
-                                    echo htmlspecialchars($ensRef['nom_ens']);
-                                } else {
-                                    echo '-';
-                                }
-                                ?>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -94,27 +78,19 @@ $title = "Réglages";
                     <table class="mon-tableau-navigation">
                         <thead>
                             <tr>
-                                <th>Année scolaire</th>
-                                <th>Classe</th>
-                                <th>Option</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            if(empty($appartients)) {
-                                echo "<tr><td colspan='3'>Aucune association enregistrée.</td></tr>";
+                            if(empty($etudiants)) {
+                                echo "<tr><td colspan='2'>Aucune inscription d'étudiant enregistrée.</td></tr>";
                             } else {
-                                foreach ($appartients as $appartient) { 
-                                    $classeName = '-';
-                                    if($appartient['id_cla']) {
-                                        $classe = getETUDIANTForCLASSE($db, $appartient['id_cla']);
-                                        $classeName = $classe['nom_cla'] ?? '-';
-                                    }
-                                    ?>
-                                    <tr>
-                                        <td><?php echo htmlspecialchars($appartient['annee_scolaire']) ?></td>
-                                        <td><?php echo htmlspecialchars($classeName) ?></td> 
-                                        <td><?php echo htmlspecialchars($appartient['option_edu']) ?></td>
+                                foreach ($etudiants as $etudiant) {?>
+                                    <tr class="tr-clickable" onclick="window.location.href='<?php echo URL_RACINE ?>onglet.php?pages=info.edu&id=<?php echo $etudiant['id_edu']; ?>'">
+                                        <td><?php echo htmlspecialchars($etudiant['nom_edu']) ?></td> 
+                                        <td><?php echo htmlspecialchars($etudiant['prenom_edu']) ?></td>
                                     </tr>
                                 <?php } 
                             } ?>

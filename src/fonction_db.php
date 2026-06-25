@@ -2,7 +2,7 @@
 
 function getTarqueENSEIGNANT($db, $id) {
     try {
-        $requete = $db->prepare("SELECT nom_ens, mail_ens, AP_ens, AD_ens FROM enseignant WHERE id_ens = :id;");
+        $requete = $db->prepare("SELECT id_ens, nom_ens, mail_ens, AP_ens, AD_ens FROM enseignant WHERE id_ens = :id;");
         $requete->execute(['id' => $id]);
         $result = $requete->fetch();
         return $result ?: false;
@@ -25,16 +25,6 @@ function getTarqueETUDIANT($db, $id) {
         return false;
     }
 }
-/*
-function getToutEtudiants($db) {
-    try {
-        $requete = $db->query("SELECT id, entreprise_id, date_envoi, mode_contact, statut, resultat FROM candidatures ORDER BY date_envoi DESC ;");
-        return $requete->fetchAll();
-    } catch (PDOException $e) {
-        error_log("Erreur SQL : " . $e->getMessage());
-        return [];
-    }
-}*/
 
 function getToutClASSE($db) {
     try {
@@ -63,6 +53,19 @@ function getToutETUDIANT($db) {
     } catch (PDOException $e) {
         error_log("Erreur SQL : " . $e->getMessage());
         return [];
+    }
+}
+
+function getToutETUDIANT_TarqueENSEIGNANT($db, $id) {
+    try {
+        $requete = $db->prepare("SELECT id_edu, nom_edu, prenom_edu, mail_edu, num_phone_edu, status_edu, id_ens FROM etudiant WHERE id_ens = :id;");
+        $requete->execute(['id' => $id]);
+        $result = $requete->fetchAll();
+        return $result ?: false;
+        
+    } catch (PDOException $e) {
+        error_log("Erreur SQL : " . $e->getMessage());
+        return false;
     }
 }
 

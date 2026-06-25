@@ -17,7 +17,6 @@ switch ($page) {
 
     case 'info_modif.edu':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
             if(!isset($_POST['nom']) || !isset($_POST['prenom']) || empty(trim($_POST['nom'])) || empty(trim($_POST['prenom']))){
                 header("Location: " . URL_RACINE . "onglet.php?pages=info_modif.edu&id=" . $_GET['id'] . "&error=1&message=Veuillez remplir le nom et le prénom.");
                 exit;
