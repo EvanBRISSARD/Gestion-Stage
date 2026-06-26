@@ -260,6 +260,9 @@ main {
     padding-left: 30px;
     padding-right: 30px;
     box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 p.badge-chemin-actuel {

@@ -5,6 +5,10 @@ require_once __DIR__ . '/../config/url_racine.php';
 require_once CHEMIN_RACINE . 'config/db.php';
 require_once CHEMIN_RACINE . 'src/fonction_db.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: " . URL_RACINE . "tableau_de_bord.php?pages=commentSeConnecter");
+}
+
 $db = getPDO();
 $enseignant = getTarqueENSEIGNANT($db, $_SESSION['user_id']);
 
@@ -32,6 +36,11 @@ switch ($page) {
         require_once CHEMIN_RACINE . 'templates/onglet/info_modif_ens.php';
         break;
 
+    case 'Sedéconnecter' :
+        require_once CHEMIN_RACINE . 'src/trait/onglet/SeDeconnecter.php';
+        header("Location: " . URL_RACINE . "tableau_de_bord.php?pages=commentSeConnecter");
+        break;
+        
     default:
         // Si la page n'existe pas
         echo "Désolé, cette page n'existe pas.";

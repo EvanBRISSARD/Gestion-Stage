@@ -14,9 +14,16 @@ switch ($page) {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             require_once CHEMIN_RACINE . 'src/trait/ens/connextionEns.trait.php';
         }
-           
-
+        
         require_once CHEMIN_RACINE . 'templates/visi/Connextion.ens.php';
+        break;
+    
+    case 'connextionEdu':
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            require_once CHEMIN_RACINE . 'src/trait/ens/connextionEns.trait.php';
+        }
+        
+        require_once CHEMIN_RACINE . 'templates/visi/Connextion.edu.php';
         break;
 
     default:

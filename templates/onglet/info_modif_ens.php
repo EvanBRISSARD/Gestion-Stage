@@ -29,6 +29,8 @@ $etudiants = getToutETUDIANT_TarqueENSEIGNANT($db, $_GET['id'])
                     <button type="submit" name="sauvegarder" class="bouton-sauvegarder">
                         <i class="fa-solid fa-floppy-disk"></i> Enregistrer
                     </button>
+
+                    <a href="<?php echo URL_RACINE; ?>onglet.php?pages=Sedéconnecter" class="bouton-ajouter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Se déconnecter</a>
                 </div>
             </div>
 
